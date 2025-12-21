@@ -7,21 +7,29 @@ body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     
-    /* ЗАПРЕТ ВЫДЕЛЕНИЯ ТЕКСТА */
-    -webkit-user-select: none; /* Safari/Chrome */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE/Edge */
-    user-select: none;         /* Стандарт */
-    
-    /* КУРСОР ВСЕГДА СТРЕЛОЧКОЙ (не палкой) */
+    /* Блокировка выделения */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     cursor: default; 
 }
 
 /* ТИПОГРАФИКА */
-h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: #000; }
+h1 { 
+    font-family: 'Playfair Display', serif; 
+    font-size: 4rem; 
+    font-weight: 900;
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+    color: #000;
+    position: relative;
+    z-index: 2; /* Текст поверх картинки */
+}
+
 h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; }
 h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 10px; }
-p { font-size: 1rem; color: #555; line-height: 1.6; }
+p { font-size: 1.1rem; color: #555; line-height: 1.6; position: relative; z-index: 2; }
 
 /* ХЕДЕР */
 header {
@@ -31,7 +39,8 @@ header {
     padding: 20px 5%;
     max-width: 1400px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); /* Чуть прозрачный */
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -49,7 +58,6 @@ nav .nav-link.active::after {
     content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #000;
 }
 
-/* КНОПКА IP */
 .contact-btn {
     background: transparent; border: 2px solid #000; padding: 10px 25px;
     font-family: 'Poppins', sans-serif; font-weight: 600; cursor: pointer; transition: 0.3s;
@@ -59,33 +67,64 @@ nav .nav-link.active::after {
 
 /* КОНТЕЙНЕРЫ СТРАНИЦ */
 main { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-.page-container { display: none; padding-top: 40px; padding-bottom: 80px; animation: fadeIn 0.5s ease; }
+.page-container { display: none; padding-bottom: 80px; animation: fadeIn 0.5s ease; }
 .page-container.active-section { display: block; }
-
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* === ГЛАВНЫЙ ЭКРАН (HERO) === */
+/* === ГЛАВНЫЙ ЭКРАН (HERO) НОВЫЙ СТИЛЬ === */
 .hero-block {
-    display: flex; align-items: center; justify-content: space-between;
-    min-height: 60vh; margin-bottom: 80px;
+    position: relative;
+    min-height: 80vh; /* Высота блока на почти весь экран */
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
 }
-.hero-content { flex: 1; padding-right: 50px; }
+
+/* Обертка для картинки, чтобы она уходила под текст */
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    right: -10%; /* Сдвигаем вправо, чтобы не мешала заголовку слева */
+    width: 75%;  /* Ширина картинки */
+    height: 100%;
+    z-index: 0;
+    /* Магия исчезновения влево */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    pointer-events: none; /* Чтобы картинку нельзя было кликнуть или выделить */
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Тень для объема (видная справа) */
+    filter: drop-shadow(-20px 0 30px rgba(0,0,0,0.15));
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding-top: 50px;
+    z-index: 2; /* Текст выше картинки */
+}
+
 .season-badge {
-    background: #f1c40f; color: #000; font-weight: bold; padding: 5px 10px;
-    font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 15px; display: inline-block;
+    background: #000; color: #fff; font-weight: bold; padding: 5px 12px;
+    font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 20px; display: inline-block;
 }
-.hero-image { flex: 1.2; height: 400px; overflow: hidden; border-radius: 5px; }
-.hero-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .reserve-btn {
-    display: inline-block; background: #000; color: #fff; padding: 15px 35px;
-    text-decoration: none; font-weight: 600; margin-top: 20px; transition: 0.3s;
-    cursor: pointer; /* Для кнопок возвращаем руку */
+    display: inline-block; background: #000; color: #fff; padding: 18px 40px;
+    text-decoration: none; font-weight: 600; margin-top: 30px; transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Тень кнопки */
 }
-.reserve-btn:hover { background: #333; }
+.reserve-btn:hover { background: #333; transform: translateY(-2px); }
 
 /* === СЕКЦИЯ 3 СЕЗОН + ГАЛЕРЕЯ === */
-.season-info { margin-top: 50px; border-top: 1px solid #eee; padding-top: 50px; }
+.season-info { margin-top: 50px; border-top: 1px solid #eee; padding-top: 50px; position: relative; z-index: 2; background: white; }
 .text-block { max-width: 800px; margin-bottom: 40px; }
 
 .gallery-grid {
@@ -93,29 +132,71 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 }
 .gallery-item {
     height: 250px; overflow: hidden; border-radius: 5px; position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 .gallery-item img {
     width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
 }
 .gallery-item:hover img { transform: scale(1.05); }
 
-/* === СТРАНИЦА МОДОВ === */
-.section-header { text-align: center; margin-bottom: 50px; }
+/* === ОСОБЕННОСТИ И ТГ === */
+.section-header { text-align: center; margin-bottom: 50px; padding-top: 40px; }
 .features-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
 }
 .feature-card {
-    padding: 30px; background: #f9f9f9; border-radius: 5px; text-align: center;
+    padding: 30px; background: #f9f9f9; border-radius: 10px; text-align: center;
     border: 1px solid transparent; transition: 0.3s;
 }
-.feature-card:hover { border-color: #ddd; background: #fff; }
+.feature-card:hover { border-color: #ddd; background: #fff; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* БЛОК ТЕЛЕГРАМА */
+.admin-contact {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.tg-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0088cc 0%, #005f8f 100%); /* Цвет Телеграма */
+    color: white;
+    padding: 25px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
+    transition: 0.3s;
+    max-width: 500px;
+    width: 100%;
+}
+
+.tg-card:hover { transform: scale(1.02); }
+
+.tg-icon { font-size: 3rem; margin-right: 20px; }
+.tg-info h3 { font-family: 'Poppins', sans-serif; font-size: 1.2rem; margin: 0; color: rgba(255,255,255,0.9); }
+.tg-info p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 10px; }
+.tg-link {
+    display: inline-block;
+    background: white;
+    color: #0088cc;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    cursor: pointer;
+}
 
 /* МОБИЛКА */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    .hero-block { flex-direction: column-reverse; }
-    .hero-content { padding-right: 0; margin-top: 30px; }
-    .hero-image { width: 100%; height: 300px; }
+    h1 { font-size: 3rem; }
+    .hero-block { flex-direction: column; min-height: auto; }
+    .hero-bg-wrapper { 
+        position: relative; width: 100%; height: 300px; right: 0; 
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        margin-bottom: -50px; /* Наложение текста на картинку */
+    }
+    .hero-content { padding-top: 0; text-align: center; width: 100%; }
     .gallery-grid { grid-template-columns: 1fr; }
     header { flex-wrap: wrap; padding: 15px; }
     nav { width: 100%; order: 3; margin-top: 15px; display: flex; justify-content: center; }
