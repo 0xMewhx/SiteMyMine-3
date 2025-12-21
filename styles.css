@@ -1,10 +1,20 @@
 /* БАЗА */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
     background-color: #ffffff;
     color: #1a1a1a;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    
+    /* ЗАПРЕТ ВЫДЕЛЕНИЯ ТЕКСТА */
+    -webkit-user-select: none; /* Safari/Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Стандарт */
+    
+    /* КУРСОР ВСЕГДА СТРЕЛОЧКОЙ (не палкой) */
+    cursor: default; 
 }
 
 /* ТИПОГРАФИКА */
@@ -22,7 +32,7 @@ header {
     max-width: 1400px;
     margin: 0 auto;
     background: white;
-    position: sticky; /* Липкий хедер */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -70,6 +80,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 .reserve-btn {
     display: inline-block; background: #000; color: #fff; padding: 15px 35px;
     text-decoration: none; font-weight: 600; margin-top: 20px; transition: 0.3s;
+    cursor: pointer; /* Для кнопок возвращаем руку */
 }
 .reserve-btn:hover { background: #333; }
 
