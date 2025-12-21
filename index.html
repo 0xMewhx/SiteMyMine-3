@@ -3,149 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMine.fun ✨</title>
+    <title>MyMine.fun - Твой идеальный сервер</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="background"></div>
-
-    <main class="glass-panel">
-        
-        <div class="creeper-header">
-            <div class="creeper-face">
-                <div class="eye">
-                    <div class="pupil"></div>
-                </div>
-                <div class="eye">
-                    <div class="pupil"></div>
-                </div>
-                <div class="mouth"></div>
-            </div>
-            <h1>MYMINE<span class="highlight">.FUN</span></h1>
-            <p class="subtitle">Уютный. Модовый. Твой.</p>
-        </div>
-
-        <nav class="tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'home')">🏠 Главная</button>
-            <button class="tab-btn" onclick="openTab(event, 'mods')">📚 Моды</button>
-            <button class="tab-btn download-tab" onclick="openTab(event, 'download')">⬇️ Скачать</button>
+    <header>
+        <div class="logo">MyMine.fun</div>
+        <nav>
+            <button class="nav-link active" onclick="showSection('hero')">Главная</button>
+            <button class="nav-link" onclick="showSection('mods-section')">О сервере</button>
         </nav>
+        <button class="contact-btn" onclick="copyIp()">
+            <span id="ip-text">Скопировать IP</span>
+        </button>
+    </header>
 
-        <div id="home" class="tab-content active">
-            <div class="info-box">
-                <h2>👋 Привет, новичок!</h2>
-                <p>Мы создали идеальный баланс между <b>Create</b>, магией и уютным выживанием. Строй заводы, ночуй в палатках и исследуй мир.</p>
-                
-                <div class="ip-card" onclick="copyIp()">
-                    <span class="server-ip">mymine.fun</span>
-                    <span class="click-hint">Нажми, чтобы скопировать IP</span>
-                </div>
-                <div id="copy-msg">Скопировано! Ждем тебя ❤️</div>
+    <main>
+        <section id="hero" class="hero-section active-section">
+            <div class="hero-content">
+                <h1>Твой идеальный <br>сервер Minecraft.</h1>
+                <p>Баланс между инженерным гением Create, магией и уютным выживанием. Версия 1.20.1 (Fabric). Ждем только тебя.</p>
+                <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn">Скачать Модпак</a>
             </div>
-        </div>
+            <div class="hero-image">
+                <img src="server-screenshot.jpg" alt="Красивый скриншот сервера MyMine.fun">
+            </div>
+        </section>
 
-        <div id="mods" class="tab-content">
-            <div class="mods-grid">
-                <div class="mod-item">
-                    <span class="icon">⚙️</span>
-                    <h3>Create</h3>
-                    <p>Механизмы</p>
+        <section id="mods-section" class="content-section">
+             <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚙️ Create & Технологии</h3>
+                    <p>Строй невероятные механизмы, автоматизируй все и создавай заводы своей мечты.</p>
                 </div>
-                <div class="mod-item">
-                    <span class="icon">⚔️</span>
-                    <h3>Combat</h3>
-                    <p>Новая боевка</p>
+                <div class="feature-card">
+                    <h3>⚔️ Better Combat</h3>
+                    <p>Наслаждайся динамичной боевой системой с новыми анимациями и оружием.</p>
                 </div>
-                <div class="mod-item">
-                    <span class="icon">🍔</span>
-                    <h3>Farmer's</h3>
-                    <p>Еда и кухня</p>
+                <div class="feature-card">
+                    <h3>🌍 Новая Генерация</h3>
+                    <p>Исследуй потрясающие биомы от Terralith и Biomes O' Plenty.</p>
                 </div>
-                <div class="mod-item">
-                    <span class="icon">🎙️</span>
-                    <h3>Voice</h3>
-                    <p>Голосовой чат</p>
-                </div>
-                <div class="mod-item">
-                    <span class="icon">🏔️</span>
-                    <h3>Terra</h3>
-                    <p>Новые биомы</p>
-                </div>
-                <div class="mod-item">
-                    <span class="icon">✨</span>
-                    <h3>Shaders</h3>
-                    <p>Оптимизация</p>
+                 <div class="feature-card">
+                    <h3>🎙️ Голосовой Чат</h3>
+                    <p>Общайся с друзьями прямо в игре благодаря Simple Voice Chat.</p>
                 </div>
             </div>
-        </div>
-
-        <div id="download" class="tab-content">
-            <div class="download-area">
-                <h2>🚀 Готов играть?</h2>
-                <p>Скачай наш готовый модпак (все настроено!). Просто распакуй и играй.</p>
-                
-                <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="download-btn-big">
-                    <span>СКАЧАТЬ МОДПАК</span>
-                    <small>Версия 1.0 • MegaSbornik-Drun.zip</small>
-                </a>
-                
-                <p class="note">Для версии 1.20.1 (Fabric)</p>
+             <div class="download-cta">
+                <h3>Готов начать?</h3>
+                <p>Скачай нашу готовую сборку и залетай!</p>
+                 <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn small">Скачать (v1.0)</a>
             </div>
-        </div>
-
+        </section>
     </main>
 
     <script>
-        // ЛОГИКА ВКЛАДОК
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove("active");
+        // ПЕРЕКЛЮЧЕНИЕ СЕКЦИЙ
+        function showSection(sectionId) {
+            // Скрываем все секции
+            document.querySelectorAll('main section').forEach(sec => {
+                sec.classList.remove('active-section');
+            });
+            // Убираем активный класс у кнопок
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Показываем нужную секцию
+            document.getElementById(sectionId).classList.add('active-section');
+            // Подсвечиваем кнопку (простой вариант)
+            if (sectionId === 'hero') {
+                 document.querySelector('.nav-link:nth-child(1)').classList.add('active');
+            } else {
+                 document.querySelector('.nav-link:nth-child(2)').classList.add('active');
             }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            // Небольшая задержка для анимации
-            setTimeout(() => {
-                document.getElementById(tabName).classList.add("active");
-            }, 10);
-            
-            evt.currentTarget.className += " active";
         }
 
-        // ЛОГИКА КОПИРОВАНИЯ IP
+        // КОПИРОВАНИЕ IP
         function copyIp() {
             navigator.clipboard.writeText("mymine.fun");
-            const msg = document.getElementById("copy-msg");
-            msg.style.opacity = "1";
-            setTimeout(() => { msg.style.opacity = "0"; }, 2000);
-        }
-
-        // ЛОГИКА КРИПЕРА (ГЛАЗА СЛЕДЯТ ЗА МЫШКОЙ)
-        document.addEventListener('mousemove', (e) => {
-            const pupils = document.querySelectorAll('.pupil');
+            const btnText = document.getElementById("ip-text");
+            const originalText = btnText.innerText;
+            btnText.innerText = "IP Скопирован!";
+            btnText.parentElement.classList.add('success');
             
-            pupils.forEach((pupil) => {
-                const eye = pupil.parentElement;
-                const rect = eye.getBoundingClientRect();
-                const eyeCenterX = rect.left + rect.width / 2;
-                const eyeCenterY = rect.top + rect.height / 2;
-                
-                const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-                const distance = Math.min(eye.offsetWidth / 4, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10);
-                
-                const x = Math.cos(angle) * distance;
-                const y = Math.sin(angle) * distance;
-                
-                pupil.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
+            setTimeout(() => {
+                btnText.innerText = originalText;
+                btnText.parentElement.classList.remove('success');
+            }, 2000);
+        }
     </script>
 </body>
 </html>
