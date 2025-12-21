@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyMine.fun - Твой идеальный сервер</title>
+    <title>MyMine.fun | Season 3</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -12,69 +12,95 @@
     <header>
         <div class="logo">MyMine.fun</div>
         <nav>
-            <button class="nav-link active" onclick="showSection('hero')">Главная</button>
+            <button class="nav-link active" onclick="showSection('home')">Главная</button>
             <button class="nav-link" onclick="showSection('mods-section')">О сервере</button>
         </nav>
         <button class="contact-btn" onclick="copyIp()">
-            <span id="ip-text">Скопировать IP</span>
+            <span id="ip-text">play.mymine.fun</span>
         </button>
     </header>
 
     <main>
-        <section id="hero" class="hero-section active-section">
-            <div class="hero-content">
-                <h1>Твой идеальный <br>сервер Minecraft.</h1>
-                <p>Баланс между инженерным гением Create, магией и уютным выживанием. Версия 1.20.1 (Fabric). Ждем только тебя.</p>
-                <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn">Скачать Модпак</a>
-            </div>
-            <div class="hero-image">
-                <img src="server-screenshot.jpg" alt="Красивый скриншот сервера MyMine.fun">
-            </div>
-        </section>
+        <div id="home" class="page-container active-section">
+            
+            <section class="hero-block">
+                <div class="hero-content">
+                    <span class="season-badge">СКОРО: СЕЗОН 3</span>
+                    <h1>Твой идеальный <br>мир Minecraft.</h1>
+                    <p>Create, Better Combat и уютная атмосфера. Мы прошли долгий путь, чтобы создать идеальную сборку 1.20.1 (Fabric).</p>
+                    <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn">Скачать Сборку</a>
+                </div>
+                <div class="hero-image">
+                    <img src="img/head.png" alt="MyMine Server Main">
+                </div>
+            </section>
 
-        <section id="mods-section" class="content-section">
+            <section class="season-info">
+                <div class="text-block">
+                    <h2>Новая Эра: Сезон 3</h2>
+                    <p>
+                        Первый сезон был пробой пера. Второй — закрытым клубом для своих. 
+                        <b>Третий сезон открывает двери для всех.</b> 
+                        Мы учли все ошибки, пересобрали экономику, настроили генерацию и готовы принять новых игроков.
+                    </p>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img/1.png" alt="Скриншот 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/2.png" alt="Скриншот 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img/3.png" alt="Скриншот 3">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="mods-section" class="page-container">
+             <div class="section-header">
+                 <h2>Особенности Сборки</h2>
+             </div>
              <div class="features-grid">
                 <div class="feature-card">
-                    <h3>⚙️ Create & Технологии</h3>
-                    <p>Строй невероятные механизмы, автоматизируй все и создавай заводы своей мечты.</p>
+                    <h3>⚙️ Create</h3>
+                    <p>Механизмы, поезда и полная автоматизация производства.</p>
                 </div>
                 <div class="feature-card">
                     <h3>⚔️ Better Combat</h3>
-                    <p>Наслаждайся динамичной боевой системой с новыми анимациями и оружием.</p>
+                    <p>Новая физика сражений, анимации и оружие Simply Swords.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>🌍 Новая Генерация</h3>
-                    <p>Исследуй потрясающие биомы от Terralith и Biomes O' Plenty.</p>
+                    <h3>🌍 Генерация</h3>
+                    <p>Terralith + Biomes O' Plenty. Мир, который хочется исследовать.</p>
                 </div>
                  <div class="feature-card">
-                    <h3>🎙️ Голосовой Чат</h3>
-                    <p>Общайся с друзьями прямо в игре благодаря Simple Voice Chat.</p>
+                    <h3>🎙️ Voice Chat</h3>
+                    <p>Proximity chat. Слышно тех, кто рядом.</p>
                 </div>
             </div>
-             <div class="download-cta">
-                <h3>Готов начать?</h3>
-                <p>Скачай нашу готовую сборку и залетай!</p>
-                 <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn small">Скачать (v1.0)</a>
-            </div>
-        </section>
+        </div>
     </main>
 
     <script>
-        // ПЕРЕКЛЮЧЕНИЕ СЕКЦИЙ
+        // ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
         function showSection(sectionId) {
-            // Скрываем все секции
-            document.querySelectorAll('main section').forEach(sec => {
-                sec.classList.remove('active-section');
+            // Скрываем все страницы
+            document.querySelectorAll('.page-container').forEach(page => {
+                page.classList.remove('active-section');
             });
-            // Убираем активный класс у кнопок
+            // Убираем актив класс у кнопок
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
             });
 
-            // Показываем нужную секцию
+            // Показываем нужную страницу
             document.getElementById(sectionId).classList.add('active-section');
-            // Подсвечиваем кнопку (простой вариант)
-            if (sectionId === 'hero') {
+
+            // Подсветка кнопки
+            if (sectionId === 'home') {
                  document.querySelector('.nav-link:nth-child(1)').classList.add('active');
             } else {
                  document.querySelector('.nav-link:nth-child(2)').classList.add('active');
@@ -83,15 +109,17 @@
 
         // КОПИРОВАНИЕ IP
         function copyIp() {
-            navigator.clipboard.writeText("mymine.fun");
+            navigator.clipboard.writeText("play.mymine.fun");
             const btnText = document.getElementById("ip-text");
+            const btn = document.querySelector(".contact-btn");
+            
             const originalText = btnText.innerText;
-            btnText.innerText = "IP Скопирован!";
-            btnText.parentElement.classList.add('success');
+            btnText.innerText = "СКОПИРОВАНО!";
+            btn.classList.add('success');
             
             setTimeout(() => {
                 btnText.innerText = originalText;
-                btnText.parentElement.classList.remove('success');
+                btn.classList.remove('success');
             }, 2000);
         }
     </script>
