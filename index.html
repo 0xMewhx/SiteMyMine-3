@@ -189,16 +189,29 @@
     </div>
 
     <script>
+        const sectionOrder = ['home', 'gallery-section', 'mods-section'];
+        let currentIndex = 0; 
+
         function showSection(sectionId) {
-            document.querySelectorAll('.page-container').forEach(p => p.classList.remove('active-section'));
+            const nextIndex = sectionOrder.indexOf(sectionId);
+            if (nextIndex === currentIndex) return;
+            const animationClass = nextIndex > currentIndex ? 'anim-next' : 'anim-prev';
+            document.querySelectorAll('.page-container').forEach(p => {
+                p.classList.remove('active-section', 'anim-next', 'anim-prev');
+            });
+            const newSection = document.getElementById(sectionId);  
+            newSection.classList.add('active-section', animationClass);
+
+            // Обновляем кнопки меню (подсветку)
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active-section');
             const btns = document.querySelectorAll('.nav-link');
             if(sectionId === 'home') btns[0].classList.add('active');
             if(sectionId === 'gallery-section') btns[1].classList.add('active');
             if(sectionId === 'mods-section') btns[2].classList.add('active');
-        }
 
+            // Запоминаем текущее место
+            currentIndex = nextIndex;
+        }
         function copyIp() {
             navigator.clipboard.writeText("play.mymine.fun");
             const btnText = document.getElementById("ip-text");
