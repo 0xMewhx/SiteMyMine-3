@@ -24,117 +24,122 @@
     </header>
 
     <main>
-        <div id="home" class="page-container active-section">
-            <section class="hero-block">
-                <div class="hero-bg-wrapper">
-                    <img src="head.png" alt="MyMine Server Background" class="hero-bg">
+        <div id="slider-track">
+
+            <div id="home" class="page-container">
+                <section class="hero-block">
+                    <div class="hero-bg-wrapper">
+                        <img src="head.png" alt="MyMine Server Background" class="hero-bg">
+                    </div>
+                    <div class="hero-content">
+                        <span class="season-badge">АКТУАЛЬНО: СЕЗОН 3</span>
+                        <h1>Твой идеальный <br>мир Minecraft.</h1>
+                        
+                        <div class="server-status-widget">
+                            <div class="status-indicator" id="status-dot"></div>
+                            <div class="status-text">
+                                <span id="server-status">Проверка...</span>
+                                <span id="player-count" style="display:none;">• <b id="online-num">0</b> игроков</span>
+                            </div>
+                        </div>
+
+                        <p>Create, Better Combat и уютная атмосфера. Версия 1.20.1 (Fabric).</p>
+                        <button onclick="openDownloadMenu()" class="reserve-btn">Скачать Сборку</button>
+                    </div>
+                </section>
+
+                <section class="history-tree-section">
+                    <div class="tree-container">
+                        <div class="season-node current-season">
+                            <h2>💎 SEASON 3</h2>
+                            <p>Текущий сезон.</p>
+                        </div>
+                        <div class="tree-connector">
+                            <div class="vertical-line"></div>
+                            <div class="horizontal-line"></div>
+                        </div>
+                        <div class="past-seasons-row">
+                            <div class="season-node past-season">
+                                <h3>📜 SEASON 1</h3>
+                                <p>Завершен.</p>
+                            </div>
+                            <div class="season-node past-season">
+                                <h3>⚙️ SEASON 2</h3>
+                                <p>Завершен.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="gallery-section" class="page-container">
+                <div class="section-header">
+                    <h2>Галерея</h2>
+                    <p>Скоро здесь появятся скриншоты.</p>
                 </div>
-                <div class="hero-content">
-                    <span class="season-badge">АКТУАЛЬНО: СЕЗОН 3</span>
-                    <h1>Твой идеальный <br>мир Minecraft.</h1>
+                <div class="photo-grid">
+                    <div class="photo-card" onclick="openModal(this)">
+                        <img src="1.png" alt="Скриншот 1">
+                    </div>
                     
-                    <div class="server-status-widget">
-                        <div class="status-indicator" id="status-dot"></div>
-                        <div class="status-text">
-                            <span id="server-status">Проверка...</span>
-                            <span id="player-count" style="display:none;">• <b id="online-num">0</b> игроков</span>
-                        </div>
                     </div>
-
-                    <p>Create, Better Combat и уютная атмосфера. Версия 1.20.1 (Fabric).</p>
-                    <button onclick="openDownloadMenu()" class="reserve-btn">Скачать Сборку</button>
-                </div>
-            </section>
-
-            <section class="history-tree-section">
-                <div class="tree-container">
-                    <div class="season-node current-season">
-                        <h2>💎 SEASON 3</h2>
-                        <p>Текущий сезон.</p>
-                    </div>
-                    <div class="tree-connector">
-                        <div class="vertical-line"></div>
-                        <div class="horizontal-line"></div>
-                    </div>
-                    <div class="past-seasons-row">
-                        <div class="season-node past-season">
-                            <h3>📜 SEASON 1</h3>
-                            <p>Завершен.</p>
-                        </div>
-                        <div class="season-node past-season">
-                            <h3>⚙️ SEASON 2</h3>
-                            <p>Завершен.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div id="gallery-section" class="page-container">
-            <div class="section-header">
-                <h2>Галерея</h2>
-                <p>Скоро здесь появятся скриншоты.</p>
             </div>
-            <div class="photo-grid">
-                <div class="photo-card" onclick="openModal(this)">
-            <img src="1.png" alt="Скриншот 1">
+
+            <div id="mods-section" class="page-container">
+                 <div class="section-header">
+                     <h2>Состав Сборки</h2>
+                     <p>Мы отобрали лучшие моды для стабильной игры.</p>
+                 </div>
+                 <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="card-icon">⚙️</div>
+                        <h3>Tech & Food</h3>
+                        <ul>
+                            <li>Create (Механизмы)</li>
+                            <li>Farmer's Delight (Кулинария)</li>
+                            <li>Автоматизация ферм</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon">⚔️</div>
+                        <h3>Battle System</h3>
+                        <ul>
+                            <li>Better Combat (Физика боя)</li>
+                            <li>Simply Swords (Новое оружие)</li>
+                            <li>Eating Animation (Анимации еды)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon">🌍</div>
+                        <h3>Atmosphere</h3>
+                        <ul>
+                            <li>Terralith + Biomes O' Plenty</li>
+                            <li>AmbientSounds + Visuality</li>
+                            <li>Presence Footsteps (Звуки шагов)</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon">🎒</div>
+                        <h3>Gameplay</h3>
+                        <ul>
+                            <li>Simple Voice Chat (Голос)</li>
+                            <li>JourneyMap (Миникарта)</li>
+                            <li>VeinMiner (Быстрая добыча)</li>
+                            <li>Jade (Инфо о блоках)</li>
+                        </ul>
+                    </div>
                 </div>
-        </div>
-    </div>
-        <div id="mods-section" class="page-container">
-             <div class="section-header">
-                 <h2>Состав Сборки</h2>
-                 <p>Мы отобрали лучшие моды для стабильной игры.</p>
-             </div>
-             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Tech & Food</h3>
-                    <ul>
-                        <li>Create (Механизмы)</li>
-                        <li>Farmer's Delight (Кулинария)</li>
-                        <li>Автоматизация ферм</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <div class="card-icon">⚔️</div>
-                    <h3>Battle System</h3>
-                    <ul>
-                        <li>Better Combat (Физика боя)</li>
-                        <li>Simply Swords (Новое оружие)</li>
-                        <li>Eating Animation (Анимации еды)</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <div class="card-icon">🌍</div>
-                    <h3>Atmosphere</h3>
-                    <ul>
-                        <li>Terralith + Biomes O' Plenty</li>
-                        <li>AmbientSounds + Visuality</li>
-                        <li>Presence Footsteps (Звуки шагов)</li>
-                    </ul>
-                </div>
-                <div class="feature-card">
-                    <div class="card-icon">🎒</div>
-                    <h3>Gameplay</h3>
-                    <ul>
-                        <li>Simple Voice Chat (Голос)</li>
-                        <li>JourneyMap (Миникарта)</li>
-                        <li>VeinMiner (Быстрая добыча)</li>
-                        <li>Jade (Инфо о блоках)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="admin-contact">
-                <div class="tg-card">
-                    <div class="tg-info">
-                        <h3>Связь с Админом</h3>
-                        <a href="https://t.me/bluzn" target="_blank" class="tg-link">Telegram: @bluzn</a>
+                <div class="admin-contact">
+                    <div class="tg-card">
+                        <div class="tg-info">
+                            <h3>Связь с Админом</h3>
+                            <a href="https://t.me/bluzn" target="_blank" class="tg-link">Telegram: @bluzn</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+
+        </div> </main>
 
     <div id="download-overlay" class="split-overlay">
         <button class="close-split" onclick="closeDownloadMenu()">&times;</button>
@@ -190,17 +195,15 @@
 
     <script>
         const sectionOrder = ['home', 'gallery-section', 'mods-section'];
-        let currentIndex = 0; 
 
         function showSection(sectionId) {
-            const nextIndex = sectionOrder.indexOf(sectionId);
-            if (nextIndex === currentIndex) return;
-            const animationClass = nextIndex > currentIndex ? 'anim-next' : 'anim-prev';
-            document.querySelectorAll('.page-container').forEach(p => {
-                p.classList.remove('active-section', 'anim-next', 'anim-prev');
-            });
-            const newSection = document.getElementById(sectionId);  
-            newSection.classList.add('active-section', animationClass);
+            const index = sectionOrder.indexOf(sectionId);
+            const track = document.getElementById('slider-track');
+            
+            // Двигаем трек влево на нужное кол-во процентов
+            // 0 = 0%, 1 = -33.333%, 2 = -66.666%
+            const translateValue = -(index * 33.3333); 
+            track.style.transform = `translateX(${translateValue}%)`;
 
             // Обновляем кнопки меню (подсветку)
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -209,9 +212,10 @@
             if(sectionId === 'gallery-section') btns[1].classList.add('active');
             if(sectionId === 'mods-section') btns[2].classList.add('active');
 
-            // Запоминаем текущее место
-            currentIndex = nextIndex;
+            // Скролл вверх при переходе
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
         function copyIp() {
             navigator.clipboard.writeText("play.mymine.fun");
             const btnText = document.getElementById("ip-text");
