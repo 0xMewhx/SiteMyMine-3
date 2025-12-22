@@ -6,7 +6,7 @@ body, html {
     background-color: #ffffff;
     color: #1a1a1a;
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden; /* Важно: отключаем горизонтальную прокрутку браузера */
+    overflow-x: hidden;
     -webkit-user-select: none; user-select: none;
     cursor: default;
 }
@@ -49,17 +49,16 @@ main {
 
 #slider-track {
     display: flex;
-    width: 300vw; /* 3 Экрана шириной */
+    width: 300vw;
     height: 100%;
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Плавный свайп */
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .page-container { 
-    width: 100vw; /* Одна секция = ровно 1 ширина экрана */
+    width: 100vw;
     overflow: hidden;
 }
 
-/* Ограничитель контента, чтобы текст был по центру, а не размазан */
 .content-wrapper {
     max-width: 1400px;
     margin: 0 auto;
@@ -142,15 +141,29 @@ main {
 .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 @keyframes zoom { from{transform:scale(0)} to{transform:scale(1)} }
 
-/* === ОСОБЕННОСТИ === */
+/* === ОСОБЕННОСТИ (КАРТОЧКИ ОБНОВЛЕНЫ) === */
 .section-header { text-align: center; margin-bottom: 40px; }
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
 .feature-card {
-    padding: 30px; background: #fff; border-radius: 15px; text-align: left;
-    border: 1px solid #eee; transition: 0.3s; position: relative; overflow: hidden;
+    padding: 30px;
+    background: #f7f7f7; /* <-- СДЕЛАЛ ФОН СВЕТЛО-СЕРЫМ */
+    border-radius: 15px;
+    text-align: left;
+    border: 1px solid #eaeaea; /* <-- Еле заметная рамка */
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* <-- Легкая тень для объема */
 }
-.feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* Эффект при наведении */
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: #ffffff; /* <-- Становится белым и ярким */
+    border-color: #000; /* <-- Появляется черная рамка */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
 
 .card-icon { font-size: 2.5rem; margin-bottom: 15px; }
 .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
@@ -241,7 +254,7 @@ main {
     h1 { font-size: 2.5rem; }
     .hero-block { flex-direction: column; min-height: auto; }
     .hero-bg-wrapper { position: relative; width: 100%; height: 300px; right: 0; margin-bottom: -50px; }
-    .hero-bg-wrapper::after { height: 100px; } /* Коррекция размытия для мобилки */
+    .hero-bg-wrapper::after { height: 100px; }
     
     .hero-content { padding-top: 0; text-align: center; width: 100%; }
     header { flex-wrap: wrap; justify-content: center; }
