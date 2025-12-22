@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="MyMine.fun - Хардкорный Minecraft сервер 1.20.1 с модами Create, Better Combat. Третий сезон!">
+    <meta name="keywords" content="minecraft, server, create mod, better combat, fabric, mymine">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <title>MyMine.fun | Season 3</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;800&family=Courier+New&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -13,6 +19,7 @@
         <div class="logo">MyMine.fun</div>
         <nav>
             <button class="nav-link active" onclick="showSection('home')">Главная</button>
+            <button class="nav-link" onclick="showSection('gallery-section')">Галерея</button>
             <button class="nav-link" onclick="showSection('mods-section')">О сервере</button>
         </nav>
         <button class="contact-btn" onclick="copyIp()">
@@ -32,83 +39,137 @@
                 <div class="hero-content">
                     <span class="season-badge">СКОРО: СЕЗОН 3</span>
                     <h1>Твой идеальный <br>мир Minecraft.</h1>
-                    <p>Create, Better Combat и уютная атмосфера. Мы прошли долгий путь, чтобы создать идеальную сборку 1.20.1 (Fabric).</p>
-                    <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="reserve-btn">Скачать Сборку</a>
+                    
+                    <div class="server-status-widget">
+                        <div class="status-indicator" id="status-dot"></div>
+                        <div class="status-text">
+                            <span id="server-status">Проверка...</span>
+                            <span id="player-count" style="display:none;">• <b id="online-num">0</b> игроков</span>
+                        </div>
+                    </div>
+
+                    <p>Create, Better Combat и уютная атмосфера. Версия 1.20.1 (Fabric). Строй заводы, воюй и выживай.</p>
+                    
+                    <button onclick="openDownloadMenu()" class="reserve-btn">Скачать Сборку</button>
                 </div>
+            </section>
+
+            <section class="stats-row">
+                <div class="stat-item"><h3>240+</h3><p>Игроков</p></div>
+                <div class="stat-item"><h3>1400+</h3><p>Построек</p></div>
+                <div class="stat-item"><h3>99.9%</h3><p>Uptime</p></div>
             </section>
 
             <section class="season-info">
                 <div class="text-block">
                     <h2>Новая Эра: Сезон 3</h2>
-                    <p>
-                        Первый сезон был пробой пера. Второй — закрытым клубом для своих. 
-                        <b>Третий сезон открывает двери для всех.</b> 
-                        Мы учли все ошибки, пересобрали экономику, настроили генерацию и готовы принять новых игроков.
-                    </p>
-                </div>
-
-                <div class="gallery-grid">
-                    <div class="gallery-item"><img src="1.png" alt="Скриншот 1"></div>
-                    <div class="gallery-item"><img src="2.png" alt="Скриншот 2"></div>
-                    <div class="gallery-item"><img src="3.png" alt="Скриншот 3"></div>
+                    <p>Третий сезон открывает двери для всех. Мы пересобрали экономику, настроили генерацию и готовы принять новых игроков.</p>
                 </div>
             </section>
+        </div>
+
+        <div id="gallery-section" class="page-container">
+            <div class="section-header">
+                <h2>Жизнь Сервера</h2>
+                <p>Кликай на фото, чтобы открыть.</p>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal(this)"><img src="1.png" alt="Photo 1"></div>
+                <div class="photo-card" onclick="openModal(this)"><img src="2.png" alt="Photo 2"></div>
+                <div class="photo-card" onclick="openModal(this)"><img src="3.png" alt="Photo 3"></div>
+            </div>
         </div>
 
         <div id="mods-section" class="page-container">
              <div class="section-header">
                  <h2>Особенности Сборки</h2>
              </div>
-             
              <div class="features-grid">
-                <div class="feature-card">
-                    <h3>⚙️ Create</h3>
-                    <p>Механизмы, поезда и полная автоматизация производства.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⚔️ Better Combat</h3>
-                    <p>Новая физика сражений, анимации и оружие Simply Swords.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🌍 Генерация</h3>
-                    <p>Terralith + Biomes O' Plenty. Мир, который хочется исследовать.</p>
-                </div>
-                 <div class="feature-card">
-                    <h3>🎙️ Voice Chat</h3>
-                    <p>Proximity chat. Слышно тех, кто рядом.</p>
-                </div>
+                <div class="feature-card"><h3>⚙️ Create</h3><p>Механизмы и автоматизация.</p></div>
+                <div class="feature-card"><h3>⚔️ Combat</h3><p>Better Combat + Simply Swords.</p></div>
+                <div class="feature-card"><h3>🌍 World</h3><p>Terralith + Biomes O' Plenty.</p></div>
+                <div class="feature-card"><h3>🎙️ Voice</h3><p>Proximity Chat включен.</p></div>
             </div>
 
             <div class="admin-contact">
                 <div class="tg-card">
                     <div class="tg-icon">✈️</div>
                     <div class="tg-info">
-                        <h3>Связь с админом</h3>
-                        <p>По всем вопросам и предложениям.</p>
+                        <h3>Администрация</h3>
                         <a href="https://t.me/bluzn" target="_blank" class="tg-link">@bluzn</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
+    <div id="download-overlay" class="split-overlay">
+        <button class="close-split" onclick="closeDownloadMenu()">&times;</button>
+        
+        <div class="split-side side-standard">
+            <div class="split-content">
+                <h2>📦 FULL CLIENT</h2>
+                <p>Полная папка с игрой (Mods + Configs).</p>
+                
+                <a href="https://github.com/pokox3proyoyo-dot/SiteMyMine-3/releases/download/1.0/MegaSbornik-Drun.zip" class="split-btn">СКАЧАТЬ СБОРКУ</a>
+
+                <div class="instructions-box">
+                    <h4>⚠️ ВАЖНО ПРОЧИТАТЬ:</h4>
+                    <ul>
+                        <li>🧠 Выдели <b>минимум 4GB</b> RAM.</li>
+                        <li>👀 Прорисовка <b>не больше 21</b>.</li>
+                        <li>🗑️ Лишние моды можно удалять.</li>
+                    </ul>
+                    
+                    <div class="java-args-container">
+                        <p>Рекомендуемые аргументы (Нажми):</p>
+                        <div class="code-block" onclick="copyJavaArgs(this)">
+                            <span class="code-text">-XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=16M -XX:+AlwaysPreTouch -XX:+DisableExplicitGC</span>
+                            <span class="copy-tooltip">СКОПИРОВАТЬ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="split-side side-fresh">
+            <div class="split-content">
+                <h2>🎨 TEXTURE BUNDLE</h2>
+                <p>Матрешка с ресурспаками для эстетов.</p>
+                <ul class="mod-list">
+                    <li>🪆 <b>Матрёшка Edition</b></li>
+                    <li>📁 ZIP внутри ZIP'а</li>
+                    <li>✨ Fresh Animations и др.</li>
+                </ul>
+
+                <a href="ССЫЛКА_НА_АРХИВ_С_ТЕКСТУРАМИ.zip" class="split-btn btn-accent">СКАЧАТЬ ПАК</a>
+                
+                <div class="author-credit">
+                    <small>Распакуй архив, внутри будут нужные паки.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imgModal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
     <script>
+        // 1. Вкладки
         function showSection(sectionId) {
-            document.querySelectorAll('.page-container').forEach(page => {
-                page.classList.remove('active-section');
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
+            document.querySelectorAll('.page-container').forEach(p => p.classList.remove('active-section'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active-section');
-            if (sectionId === 'home') {
-                 document.querySelector('.nav-link:nth-child(1)').classList.add('active');
-            } else {
-                 document.querySelector('.nav-link:nth-child(2)').classList.add('active');
-            }
+            
+            const btns = document.querySelectorAll('.nav-link');
+            if(sectionId === 'home') btns[0].classList.add('active');
+            if(sectionId === 'gallery-section') btns[1].classList.add('active');
+            if(sectionId === 'mods-section') btns[2].classList.add('active');
         }
 
+        // 2. Копирование IP
         function copyIp() {
             navigator.clipboard.writeText("play.mymine.fun");
             const btnText = document.getElementById("ip-text");
@@ -121,6 +182,82 @@
                 btn.classList.remove('success');
             }, 2000);
         }
+
+        // 3. Live Статистика
+        fetch('https://api.mcsrvstat.us/2/play.mymine.fun')
+            .then(res => res.json())
+            .then(data => {
+                const txt = document.getElementById('server-status');
+                const dot = document.getElementById('status-dot');
+                if (data.online) {
+                    txt.innerText = "ОНЛАЙН";
+                    txt.style.color = "#27ae60";
+                    dot.style.background = "#27ae60";
+                    dot.style.boxShadow = "0 0 10px #27ae60";
+                    document.getElementById('online-num').innerText = data.players.online;
+                    document.getElementById('player-count').style.display = "inline";
+                } else {
+                    txt.innerText = "ОФФЛАЙН";
+                    txt.style.color = "#e74c3c";
+                    dot.style.background = "#e74c3c";
+                    dot.style.boxShadow = "none";
+                }
+            }).catch(e => console.log(e));
+
+        // 4. Меню Скачивания
+        function openDownloadMenu() {
+            document.getElementById("download-overlay").classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+        function closeDownloadMenu() {
+            document.getElementById("download-overlay").classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+
+        // 5. Копирование Java Аргументов
+        function copyJavaArgs(element) {
+            const args = "-XX:+UseG1GC  -XX:MaxGCPauseMillis=50  -XX:G1HeapRegionSize=16M  -XX:+AlwaysPreTouch  -XX:+DisableExplicitGC";
+            navigator.clipboard.writeText(args).then(() => {
+                const tooltip = element.querySelector('.copy-tooltip');
+                element.classList.add('copied');
+                tooltip.innerText = "СКОПИРОВАНО! ✅";
+                setTimeout(() => {
+                    element.classList.remove('copied');
+                    tooltip.innerText = "СКОПИРОВАТЬ";
+                }, 2000);
+            });
+        }
+
+        // 6. Галерея
+        function openModal(el) {
+            const modal = document.getElementById("imgModal");
+            document.getElementById("modalImg").src = el.querySelector('img').src;
+            modal.style.display = "flex";
+        }
+        function closeModal() { document.getElementById("imgModal").style.display = "none"; }
+
+        // 7. Снег
+        document.addEventListener("DOMContentLoaded", function() {
+            const snowContainer = document.createElement("div");
+            snowContainer.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;";
+            document.body.appendChild(snowContainer);
+            
+            setInterval(() => {
+                const snowflake = document.createElement("div");
+                snowflake.innerHTML = "❄";
+                snowflake.style.cssText = `position:absolute;color:rgba(255,255,255,0.6);font-size:${Math.random()*15+10}px;left:${Math.random()*100}vw;opacity:${Math.random()};top:-50px;`;
+                snowContainer.appendChild(snowflake);
+                
+                let pos = -50, speed = Math.random()*2+1;
+                function fall() {
+                    pos += speed;
+                    snowflake.style.top = pos + "px";
+                    if(pos < window.innerHeight) requestAnimationFrame(fall);
+                    else snowflake.remove();
+                }
+                requestAnimationFrame(fall);
+            }, 300);
+        });
     </script>
 </body>
 </html>
