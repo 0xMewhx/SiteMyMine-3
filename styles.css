@@ -37,25 +37,27 @@ nav .nav-link:hover, nav .nav-link.active { color: #000; }
 .contact-btn:hover { background: #000; color: #fff; }
 .contact-btn.success { background: #27ae60; border-color: #27ae60; color: #fff; }
 
-/* === ОСНОВНОЙ КОНТЕНТ === */
-main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
+/* === ОСНОВНОЙ КОНТЕНТ (СЛАЙДЕР) === */
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0; /* Отступы перенесены внутрь секций */
+    overflow-x: hidden;
+    width: 100%;
+}
+
+#slider-track {
+    display: flex; /* Страницы в ряд */
+    width: 300%; /* Три страницы = 300% ширины */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Плавная анимация */
+}
+
 .page-container { 
-    display: none; 
-    padding-bottom: 80px; 
+    width: 33.3333%; /* Одна страница = 1/3 ширины трека */
+    padding: 0 5% 80px 5%; /* Внутренние отступы */
+    display: block !important; /* Всегда отображается */
+    opacity: 1 !important;
 }
-.page-container.active-section { display: block; }
-@keyframes slideInRight {
-    from { opacity: 0; transform: translateX(50%); } 
-    to { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-50%); } 
-    to { opacity: 1; transform: translateX(0); }
-}
-.anim-next { animation: slideInRight 0.4s ease-out forwards; }
-.anim-prev { animation: slideInLeft 0.4s ease-out forwards; }
-.page-container.active-section { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 /* === HERO SECTION === */
 .hero-block {
@@ -68,7 +70,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
     pointer-events: none;
 }
 
-/* ЭФФЕКТ РАЗМЫТИЯ СНИЗУ (МЫ ЕГО ДОБАВЛЯЛИ) */
+/* ЭФФЕКТ РАЗМЫТИЯ СНИЗУ */
 .hero-bg-wrapper::after {
     content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 200px;
     background: linear-gradient(to bottom, transparent, #ffffff);
@@ -94,7 +96,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
 .status-indicator { width: 12px; height: 12px; background: #ccc; border-radius: 50%; margin-right: 10px; transition: 0.3s; }
 .status-text { font-weight: 700; font-size: 0.9rem; color: #333; }
 
-/* === ДЕРЕВО ИСТОРИИ (СЕЗОНЫ) - ДОБАВЛЕНО ВЕРНО === */
+/* === ДЕРЕВО ИСТОРИИ === */
 .history-tree-section { margin-top: 50px; text-align: center; }
 .tree-container { display: flex; flex-direction: column; align-items: center; }
 
@@ -158,7 +160,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
 .tg-icon { font-size: 3rem; margin-right: 20px; }
 .tg-link { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.2rem; }
 
-/* === МЕНЮ СКАЧИВАНИЯ (SPLIT) - КАК ТЫ ПРОСИЛ === */
+/* === МЕНЮ СКАЧИВАНИЯ (SPLIT) === */
 .split-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: #000; z-index: 9999; display: flex;
@@ -166,7 +168,6 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
 }
 .split-overlay.active { visibility: visible; opacity: 1; }
 
-/* Вот этот Флекс делает эффект "Толкания" */
 .split-side { 
     flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; 
     position: relative; transition: 0.5s; overflow: hidden; 
@@ -178,6 +179,7 @@ main { max-width: 1400px; margin: 0 auto; padding: 0 5%; overflow: hidden;  }
 .side-fresh:hover { flex: 1.2; background: #000; }
 
 .split-content { max-width: 400px; padding: 20px; animation: fadeIn 0.8s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .split-content h2 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 900; }
 
 /* Стили для списка модов */
