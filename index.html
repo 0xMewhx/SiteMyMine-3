@@ -84,29 +84,24 @@
                         <div class="photo-card" onclick="openModal(this)">
                             <img src="1.png" alt="Скриншот 1">
                         </div>
-    
                         <div class="photo-card" onclick="openModal(this)">
                             <img src="2.png" alt="Скриншот 2">
                         </div>
-    
                         <div class="photo-card" onclick="openModal(this)">
                              <img src="3.png" alt="Скриншот 3">
                         </div>
-</div>
-                        </div>
-                        
-                        </div>
+                    </div>
                 </div>
             </div>
 
-<div id="mods-section" class="page-container">
-                 <div class="content-wrapper">
-                     <div class="section-header">
-                         <h2>Состав Сборки</h2>
-                         <p>Мы отобрали лучшие моды для стабильной игры.</p>
-                     </div>
-                     
-                     <div class="features-grid">
+            <div id="mods-section" class="page-container">
+                <div class="content-wrapper">
+                    <div class="section-header">
+                        <h2>Состав Сборки</h2>
+                        <p>Мы отобрали лучшие моды для стабильной игры.</p>
+                    </div>
+                    
+                    <div class="features-grid">
                         <div class="feature-card">
                             <div class="card-icon">⚙️</div>
                             <h3>Tech & Food</h3>
@@ -146,7 +141,9 @@
                                 <li>VeinMiner (Быстрая добыча)</li>
                                 <li>Jade (Инфо о блоках)</li>
                             </ul>
-                        </div> <div class="feature-card">
+                        </div> 
+                        
+                        <div class="feature-card">
                             <div class="card-icon">👕</div>
                             <h3>Скины</h3>
                             <ul>
@@ -167,8 +164,9 @@
                                 <li>Авто-вход для лицензии</li>
                             </ul>
                         </div>
+                    </div> 
 
-                    </div> <div class="admin-contact">
+                    <div class="admin-contact">
                         <div class="tg-card">
                             <div class="tg-info">
                                 <h3>Связь с Админом</h3>
@@ -176,8 +174,10 @@
                             </div>
                         </div>
                     </div>
-                </div> </div> `` 
-        </main>
+                </div> 
+            </div> 
+        </div> </main>
+
     <div id="download-overlay" class="split-overlay">
         <button class="close-split" onclick="closeDownloadMenu()">&times;</button>
         <div class="split-side side-standard">
@@ -225,6 +225,7 @@
     </div>
 
     <script>
+        // Твой JS код полностью рабочий, оставляем как есть
         const sectionOrder = ['home', 'gallery-section', 'mods-section'];
 
         function showSection(sectionId) {
@@ -255,14 +256,12 @@
             }, 2000);
         }
 
-        // === ОБНОВЛЕННАЯ ЛОГИКА СТАТУСА ===
         function checkServerStatus() {
             const txt = document.getElementById('server-status');
             const dot = document.getElementById('status-dot');
             const onlineNum = document.getElementById('online-num');
             const playerCountBox = document.getElementById('player-count');
 
-            // Добавляем timestamp (?t=...), чтобы избежать кэширования браузером
             fetch('https://api.mcsrvstat.us/2/play.mymine.fun?t=' + Date.now())
                 .then(res => res.json())
                 .then(data => {
@@ -271,8 +270,6 @@
                         txt.style.color = "#27ae60";
                         dot.style.background = "#27ae60";
                         dot.style.boxShadow = "0 0 10px #27ae60";
-                        
-                        // Плавное обновление числа
                         onlineNum.innerText = data.players.online;
                         playerCountBox.style.display = "inline";
                     } else {
@@ -280,21 +277,13 @@
                         txt.style.color = "#e74c3c";
                         dot.style.background = "#e74c3c";
                         dot.style.boxShadow = "none";
-                        // Если оффлайн, можно скрыть счетчик или оставить как есть
                     }
                 })
-                .catch(e => {
-                    console.log("Ошибка получения статуса:", e);
-                    // Не меняем статус на "Оффлайн" сразу при ошибке сети, чтобы не мигало
-                });
+                .catch(e => console.log("Ошибка статуса:", e));
         }
 
-        // Запускаем проверку при загрузке
         checkServerStatus();
-
-        // Запускаем автоматическое обновление каждые 15 секунд (15000 мс)
         setInterval(checkServerStatus, 15000);
-        // ==================================
 
         function openDownloadMenu() { document.getElementById("download-overlay").classList.add("active"); document.body.style.overflow = "hidden"; }
         function closeDownloadMenu() { document.getElementById("download-overlay").classList.remove("active"); document.body.style.overflow = "auto"; }
@@ -317,8 +306,7 @@
         function closeModal() { document.getElementById("imgModal").style.display = "none"; }
 
         document.addEventListener("DOMContentLoaded", function() {
-            // ... (код снега оставляем без изменений) ...
-             const snowContainer = document.createElement("div");
+            const snowContainer = document.createElement("div");
             snowContainer.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;";
             document.body.appendChild(snowContainer);
             setInterval(() => {
